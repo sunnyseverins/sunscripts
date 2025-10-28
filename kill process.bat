@@ -1,17 +1,21 @@
+@echo off
+setlocal
+
 set scriptsFolder=%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Scripts
 mkdir "%scriptsFolder%" 2>nul
 set linkFolder=%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Scripts
 mkdir "%linkFolder%" 2>nul
 
-set ownName=%~n0.bat
-set shortcutName=%~n0.lnk
-set targetPath=%scriptsFolder%\%ownName%
+set /p ownName=Enter a process name to kill: 
+
+set shortcutName=kill %ownName%.lnk
+set targetPath=%scriptsFolder%\kill %ownName%.bat
 if exist %targetPath% (
     del %targetPath%
 )
 
 echo @echo off > "%targetPath%"
-echo taskkill /f /im discord.exe /t >> "%targetPath%"
+echo taskkill /f /im %ownName%.exe /t >> "%targetPath%"
 echo exit >> "%targetPath%"
 
 set shortcutPath=%linkFolder%\%shortcutName%
@@ -27,3 +31,5 @@ echo oLink.Save >> "%temp%\createShortcut.vbs"
 
 cscript //nologo "%temp%\createShortcut.vbs"
 del "%temp%\createShortcut.vbs"
+
+endlocal
