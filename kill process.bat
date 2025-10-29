@@ -6,7 +6,7 @@ mkdir "%scriptsFolder%" 2>nul
 set linkFolder=%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Scripts
 mkdir "%linkFolder%" 2>nul
 
-set /p ownName=Enter a process name to kill: 
+set /p ownName=Enter a process name to create a killer shortcut: 
 
 set shortcutName=kill %ownName%.lnk
 set targetPath=%scriptsFolder%\kill %ownName%.bat
