@@ -1,12 +1,39 @@
-## SUNSCRIPTS
-A bunch of scripts I made for myself.
-### **kill process**
-A script that makes ending processes really fast.
-1. Download the script.
-2. Launch it, enter the name of a process you want to be able to shut fast (e.g. **telegram**). It will create both a script and a searchable link for that. Original file can be removed, lest needed for other "kill" shortcuts.
-3. Press Win, start typing **kill telegram**, then press Enter.
-4. PROFIT, fast and easy keyboard-only way to close apps.
+# SUNSCRIPTS
+A bunch of scripts I made for myself. The main idea is to speedup some actions that are not available with keyboard alone, or in turn that are too slow. Works on Windows.
 
-Although the realization is weak, it is enough to speed up things. Might fail closing some services (permission shenanigans). If you need to finetune/remove stuff created, visit:
-- For scripts: *%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Scripts*.
-- For shortcuts: *%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Scripts* or via RMB -> Open File Location.
+So, instead of typing:
+```
+Win + R -> typing: "cmd", (Ctrl + Shift +) Enter -> typing: "taskkill /f /im someprocess.exe /t", Enter -> Alt + F4
+```
+You can:
+```
+Win -> typing: "kill som", Enter
+```
+Autocompletion will understand `someprocess` name if there are no similar ones created that also begin with `som`.
+
+## Scripts so far
+
+`create-kill-process`
+<br>Prompts for the correct process name without ".exe" part, creates the "kill" script.
+
+`remove-kill-process`
+<br>Prompts for the correct process name without ".exe" part, removes the "kill" script.
+
+`create-re(start)-explorer`
+<br>Creates `re explorer` script alone.
+
+`remove-all-sunscripts`
+<br>Removes all scripts and folders used.
+
+### Disambiguation:
+
+- `create` scripts create both a script and a link for the intended action;
+- `remove` removes scripts installed;
+- `kill` keyword works with killing processes;
+- `re` keyword works with restarting processes.
+
+## Conclusion
+Although the realization is weak, it is enough to speed up things.
+If you need to finetune/remove stuff created one by one, the folders are:
+- Shortcuts: `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Scripts` or via RMB -> Open File Location.
+- Scripts: `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Scripts`
